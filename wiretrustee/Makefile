@@ -23,6 +23,7 @@ include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 define Package/wiretrustee
   SECTION:=net
   CATEGORY:=Network
+  SUBMENU:=VPN
   TITLE:=Connect your devices into a single secure private WireGuard®-based mesh network
   URL:=https://github.com/wiretrustee/wiretrustee
   DEPENDS:=$(GO_ARCH_DEPENDS)
