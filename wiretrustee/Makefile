@@ -1,12 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=wiretrustee
-PKG_VERSION:=0.3.4
+PKG_VERSION:=0.3.5
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/wiretrustee/wiretrustee/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=53cccc318be5f8a38425dd627349d2b3ae2b779e1207b1ad1a75582968d4c2da
+PKG_HASH:=1fbee81fbabacb609aeb44fb1a834756df3042344c47955c414a0ee4e1a7a99c
 
 PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1
