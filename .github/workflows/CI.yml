@@ -36,7 +36,9 @@ jobs:
           gettext git java-propose-classpath libelf-dev libncurses5-dev \
           libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget \
           python3-distutils python3-setuptools python3-dev rsync subversion \
-          swig time xsltproc zlib1g-dev
+          swig time xsltproc zlib1g-dev libgtk-3-dev libappindicator3-dev \
+          libayatana-appindicator3-dev libgl1-mesa-dev xorg-dev gcc-mingw-w64-x86-64
+
       - name: Install OpenWrt SDK
         run: |
           wget -O openwrt-sdk.tar.xz ${{ matrix.target.sdk }}
