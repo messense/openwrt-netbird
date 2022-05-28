@@ -37,6 +37,7 @@ jobs:
           libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget \
           python3-distutils python3-setuptools python3-dev rsync subversion \
           swig time xsltproc zlib1g-dev
+
       - name: Install OpenWrt SDK
         run: |
           wget -O openwrt-sdk.tar.xz ${{ matrix.target.sdk }}
