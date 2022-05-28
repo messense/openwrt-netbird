@@ -13,7 +13,7 @@ PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
 GO_PKG:=github.com/netbirdio/netbird
-GO_PKG_BUILD_PKG:=github.com/netbirdio/netbird/client/...
+GO_PKG_BUILD_PKG:=github.com/netbirdio/netbird/client
 GO_PKG_LDFLAGS:=-s -w
 GO_PKG_LDFLAGS_X:=main.Version=v$(PKG_VERSION)
 
