@@ -5,7 +5,7 @@ USE_PROCD=1
 START=99
 STOP=15
 
-NAME=wiretrustee
+NAME=netbird
 
 start_service() {
   procd_open_instance

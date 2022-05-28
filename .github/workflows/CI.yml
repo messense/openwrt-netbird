@@ -44,8 +44,8 @@ jobs:
           mv -f openwrt-sdk-* openwrt-sdk
       - name: Build Package
         run: |
-          echo "src-link wiretrustee $GITHUB_WORKSPACE" > openwrt-sdk/feeds.conf
-          echo 'CONFIG_PACKAGE_wiretrustee=y
+          echo "src-link netbird $GITHUB_WORKSPACE" > openwrt-sdk/feeds.conf
+          echo 'CONFIG_PACKAGE_netbird=y
           ' >> openwrt-sdk/.config
           cd openwrt-sdk
           cat feeds.conf.default >> feeds.conf
@@ -55,13 +55,13 @@ jobs:
           make defconfig
 
           ./scripts/feeds install -d y -f -a
-          make package/wiretrustee/compile V=s
+          make package/netbird/compile V=s
           tree bin/packages/
       - name: Archive package
         uses: actions/upload-artifact@v2
         with:
-          name: wiretrustee-${{ matrix.target.arch }}
-          path: openwrt-sdk/bin/packages/*/wiretrustee/wiretrustee*.ipk
+          name: netbird-${{ matrix.target.arch }}
+          path: openwrt-sdk/bin/packages/*/netbird/netbird*.ipk
           if-no-files-found: error
       - name: Upload package to GitHub Release
         uses: svenstaro/upload-release-action@v2
@@ -70,5 +70,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file_glob: true
           overwrite: true
-          file: openwrt-sdk/bin/packages/*/wiretrustee/wiretrustee*.ipk
+          file: openwrt-sdk/bin/packages/*/netbird/netbird*.ipk
           tag: ${{ github.ref }}
