@@ -1,0 +1,32 @@
+name: Update netbird version
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run every week
+    - cron: '0 0 * * 0'
+
+jobs:
+  update:
+    name: Update netbird version
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    - name: Install requirements
+      run: pip install requests
+    - name: Update
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: python .github/update.py
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        branch: update-netbird-version
+        delete-branch: true
+        add-paths: |
+          netbird/Makefile
+        title: 'Update netbird to latest version'
+        commit-message: 'Update netbird to latest version'
