@@ -8,7 +8,9 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/netbirdio/netbird/tar.gz/v$(PKG_VERSION)?
 PKG_HASH:=0ae18758d6c2790f011bdbd6cf98f3fe9d6ee2894c25323e66b0c0fd3878aebf
 
-PKG_BUILD_DEPENDS:=golang/host
+PKG_CONFIG_DEPENDS:=CONFIG_NETBIRD_COMPRESS_UPX
+
+PKG_BUILD_DEPENDS:=golang/host upx/host
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
@@ -20,6 +22,12 @@ GO_PKG_LDFLAGS_X:=main.Version=v$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
+define Package/$(PKG_NAME)/config
+config NETBIRD_COMPRESS_UPX
+	bool "Compress executable files with UPX"
+	default n
+endef
+
 define Package/netbird
   SECTION:=net
   CATEGORY:=Network
@@ -27,6 +35,13 @@ define Package/netbird
   TITLE:=Connect your devices into a single secure private WireGuard®-based mesh network
   URL:=https://github.com/netbirdio/netbird
   DEPENDS:=$(GO_ARCH_DEPENDS)
+endef
+
+define Build/Compile
+	$(call GoPackage/Build/Compile)
+ifneq ($(CONFIG_NETBIRD_COMPRESS_UPX),)
+	$(STAGING_DIR_HOST)/bin/upx --lzma --best $(GO_PKG_BUILD_BIN_DIR)/client
+endif
 endef
 
 define Package/netbird/install

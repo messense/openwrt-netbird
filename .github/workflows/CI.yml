@@ -51,6 +51,9 @@ jobs:
           echo 'CONFIG_PACKAGE_netbird=y
           ' >> openwrt-sdk/.config
           cd openwrt-sdk
+
+          git clone https://github.com/kuoruan/openwrt-upx.git package/upx
+
           cat feeds.conf.default >> feeds.conf
           cat feeds.conf
 
@@ -58,7 +61,7 @@ jobs:
           make defconfig
 
           ./scripts/feeds install -d y -f -a
-          make package/netbird/compile V=s
+          make package/netbird/compile V=s CONFIG_NETBIRD_COMPRESS_UPX=y
           tree bin/packages/
       - name: Archive package
         uses: actions/upload-artifact@v2
