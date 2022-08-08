@@ -29,6 +29,8 @@ jobs:
             sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/x86/generic/openwrt-sdk-22.03.0-rc5-x86-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
           - arch: "mips_74kc"
             sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/ath79/generic/openwrt-sdk-22.03.0-rc5-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+          - arch: "mipsel_24kc"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/ramips/mt7621/openwrt-sdk-22.03.0-rc5-ramips-mt7621_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
     steps:
       - uses: actions/checkout@v2
       - name: Install build requirements
