@@ -18,6 +18,7 @@ jobs:
     - name: Install requirements
       run: pip install requests
     - name: Update
+      id: update
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: python .github/update.py
@@ -28,5 +29,5 @@ jobs:
         delete-branch: true
         add-paths: |
           netbird/Makefile
-        title: 'Update netbird to latest version'
-        commit-message: 'Update netbird to latest version'
+        title: 'Update netbird to v${{ steps.update.outputs.NETBIRD_VERSION }}'
+        commit-message: 'Update netbird to v${{ steps.update.outputs.NETBIRD_VERSION }}'

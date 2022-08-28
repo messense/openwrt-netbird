@@ -37,6 +37,9 @@ def fetch_latest_release():
 
 def main():
     version, sha256 = fetch_latest_release()
+    if os.getenv("GITHUB_ACTIONS"):
+        print(f"::set-output name=NETBIRD_VERSION::{version}")
+
     with open("netbird/Makefile") as f:
         makefile = f.read()
 
