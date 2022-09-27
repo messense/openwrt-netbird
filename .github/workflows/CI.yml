@@ -14,23 +14,23 @@ jobs:
       matrix:
         target:
           - arch: "aarch64_generic"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/rockchip/armv8/openwrt-sdk-22.03.0-rc5-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/rockchip/armv8/openwrt-sdk-22.03.0-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
           - arch: "arm_cortex-a9"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/bcm53xx/generic/openwrt-sdk-22.03.0-rc5-bcm53xx-generic_gcc-11.2.0_musl_eabi.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/bcm53xx/generic/openwrt-sdk-22.03.0-bcm53xx-generic_gcc-11.2.0_musl_eabi.Linux-x86_64.tar.xz"
           - arch: "aarch64_cortex-a53"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/bcm27xx/bcm2710/openwrt-sdk-22.03.0-rc5-bcm27xx-bcm2710_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/bcm27xx/bcm2710/openwrt-sdk-22.03.0-bcm27xx-bcm2710_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
           - arch: "aarch64_cortex-a72"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/bcm27xx/bcm2711/openwrt-sdk-22.03.0-rc5-bcm27xx-bcm2711_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/bcm27xx/bcm2711/openwrt-sdk-22.03.0-bcm27xx-bcm2711_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
           - arch: "arm_cortex-a7_neon-vfpv4"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/ipq40xx/generic/openwrt-sdk-22.03.0-rc5-ipq40xx-generic_gcc-11.2.0_musl_eabi.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/ipq40xx/generic/openwrt-sdk-22.03.0-ipq40xx-generic_gcc-11.2.0_musl_eabi.Linux-x86_64.tar.xz"
           - arch: "x86_64"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/x86/64/openwrt-sdk-22.03.0-rc5-x86-64_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/x86/64/openwrt-sdk-22.03.0-x86-64_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
           - arch: "i386_pentium4"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/x86/generic/openwrt-sdk-22.03.0-rc5-x86-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/x86/generic/openwrt-sdk-22.03.0-x86-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
           - arch: "mips_74kc"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/ath79/generic/openwrt-sdk-22.03.0-rc5-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/ath79/generic/openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
           - arch: "mipsel_24kc"
-            sdk: "https://downloads.openwrt.org/releases/22.03.0-rc5/targets/ramips/mt7621/openwrt-sdk-22.03.0-rc5-ramips-mt7621_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
+            sdk: "https://downloads.openwrt.org/releases/22.03.0/targets/ramips/mt7621/openwrt-sdk-22.03.0-ramips-mt7621_gcc-11.2.0_musl.Linux-x86_64.tar.xz"
     steps:
       - uses: actions/checkout@v2
       - name: Install build requirements
