@@ -17,7 +17,7 @@ PKG_USE_MIPS16:=0
 GO_PKG:=github.com/netbirdio/netbird
 GO_PKG_BUILD_PKG:=github.com/netbirdio/netbird/client
 GO_PKG_LDFLAGS:=-s -w
-GO_PKG_LDFLAGS_X:=main.Version=v$(PKG_VERSION)
+GO_PKG_LDFLAGS_X:=github.com/netbirdio/netbird/client/system.version=v$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
