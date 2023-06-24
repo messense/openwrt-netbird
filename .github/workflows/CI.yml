@@ -59,6 +59,7 @@ jobs:
           cd openwrt-sdk
 
           git clone https://github.com/kuoruan/openwrt-upx.git package/upx
+          git -C package/upx checkout 2c2ee0d696ea6084bee893a2861a7ed0729728ed
 
           cat feeds.conf.default >> feeds.conf
           cat feeds.conf
