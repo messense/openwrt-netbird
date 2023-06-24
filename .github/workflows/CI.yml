@@ -50,6 +50,7 @@ jobs:
           wget -O openwrt-sdk.tar.xz ${{ matrix.target.sdk }}
           xz -q -d openwrt-sdk.tar.xz && tar -xvf openwrt-sdk.tar
           mv -f openwrt-sdk-* openwrt-sdk
+          mv -f .github/feeds.conf.default openwrt-sdk/feeds.conf.default
       - name: Build Package
         run: |
           echo "src-link netbird $GITHUB_WORKSPACE" > openwrt-sdk/feeds.conf
@@ -63,6 +64,7 @@ jobs:
           cat feeds.conf
 
           ./scripts/feeds update -a > /dev/null
+          rm -rf ./feeds/packages/net/netbird
           make defconfig
 
           ./scripts/feeds install -d y -f -a
