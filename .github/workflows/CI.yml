@@ -50,7 +50,6 @@ jobs:
           wget -O openwrt-sdk.tar.xz ${{ matrix.target.sdk }}
           xz -q -d openwrt-sdk.tar.xz && tar -xvf openwrt-sdk.tar
           mv -f openwrt-sdk-* openwrt-sdk
-          mv -f .github/feeds.conf.default openwrt-sdk/feeds.conf.default
       - name: Build Package
         run: |
           echo "src-link netbird $GITHUB_WORKSPACE" > openwrt-sdk/feeds.conf
@@ -59,9 +58,10 @@ jobs:
           cd openwrt-sdk
 
           git clone https://github.com/kuoruan/openwrt-upx.git package/upx
-          git -C package/upx checkout 2c2ee0d696ea6084bee893a2861a7ed0729728ed
+          git -C package/upx checkout 2c2ee0d696ea6084bee893a2861a7ed0729728ed # upx version: v2022-10-20
 
-          cat feeds.conf.default >> feeds.conf
+          #cat feeds.conf.default >> feeds.conf
+          echo 'src-git packages https://git.openwrt.org/feed/packages.git^8939b43659dabe9b737feee02976949ad0355adc' >> feeds.conf # feeds/packages: OpenWrt v23.05.0-rc2
           cat feeds.conf
 
           ./scripts/feeds update -a > /dev/null
